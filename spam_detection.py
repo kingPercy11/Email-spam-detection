@@ -15,6 +15,7 @@ from wordcloud import WordCloud
 from collections import Counter
 from nltk.corpus import stopwords
 import string
+import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
@@ -147,3 +148,8 @@ y_pred2 = mnb.predict(X_test)
 print(accuracy_score(y_test,y_pred2))
 print(confusion_matrix(y_test,y_pred2))
 print(precision_score(y_test,y_pred2))
+
+
+#save model
+pickle.dump(tfidf,open('vectorizer.pkl','wb'))
+pickle.dump(mnb,open('model.pkl','wb'))
