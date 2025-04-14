@@ -37,9 +37,7 @@ def transform_text(text):
 
     return " ".join(y)
 
-
-st.markdown(
-    """
+st.markdown( """
     <style>
     .main {
         background-color: #f0f2f6;
@@ -74,12 +72,9 @@ st.markdown(
     }
     </style>
     """, unsafe_allow_html=True)
-
 st.markdown("<h1 style='text-align: center; color: white;'>Email/SMS Spam Classifier</h1>", unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center; color: #4CAF50;'>Check if your message is Spam or Not </h2>", unsafe_allow_html=True)
-
 input_sms = st.text_area("yo", placeholder="Enter the message here", height=150, label_visibility="collapsed")
-
 if st.button('Predict'):
     transformed_sms = transform_text(input_sms)
     vector_input = tfidf.transform([transformed_sms])
